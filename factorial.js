@@ -86,21 +86,27 @@ function fact_r(n) {
 console.log('fact_r(8): %d', fact_r(8)); //fact_r(8): 40320
 
 /**
- * Factorial sequence in recursion with memoization
+ * Factorial sequence in recursion with memoization,
+ * although this is not necessary, just for fun.
  * @param {Number} n - value to calculate
  * @return {Number} calculated value for !n
  */
 
 function fact_rm(n) {
-  //initialize cache storage for values
-  if (!cache) { var cache = []; }
+  //initialize cache storage for values for possible multiple calls of f(n);
+  var cache = [];
 
-  if (n <= 1) { 
-    return cache[n] = 1; 
-  } else if (cache[n]) {
-    return cache[n];
-  } else {
-    return n * fact_rm(n-1);
+  function f(num) {
+    if (num <= 1) {
+      return cache[num] = num;
+    } else if (cache[num]) {
+      return cache[num];
+    } else {
+      return cache[num] = num * f(num-1);
+    }
   }
+  return f(n);
 }
-console.log('fact_rm(9): %d', fact_rm(9));
+console.log('fact_rm(9): %d', fact_rm(9)); //fact_rm(9): 362880
+
+
