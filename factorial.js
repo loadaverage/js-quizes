@@ -60,7 +60,7 @@ function fact_map(n) {
  return Array
   .apply(null, Array(n))
   .map(function (el, ind, array) {
-    if (ind == 0 || ind == 1) {
+    if (ind <= 1) {
       return array[ind] = 1;
     }
     return array[ind] = array[ind-1] * ind;

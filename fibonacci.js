@@ -57,7 +57,7 @@ console.log('fib(7): %d', fib(7));//fib(7): 13
 
 function fib_rec(n) {
   if (n <= 1) {
-    return n == 1 ? 1 : 0;
+    return n;
   } else {
     return fib_rec(n-1) + fib_rec(n-2);
   }
@@ -74,7 +74,7 @@ function fib_recm(n) {
   var cache = [];
   function fib(num) {
     if (num <= 1) {
-      return cache[num] = num == 1 ? 1 : 0;
+      return cache[num] = num;
     } else if (cache[num]) {
       return cache[num];
     } else {
